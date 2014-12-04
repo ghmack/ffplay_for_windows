@@ -1,0 +1,51 @@
+// axffplay.idl : ActiveX 控件项目的类型库源。
+
+// 此文件将由 MIDL 编译器工具处理以
+// 产生类型库(axffplay.tlb)，该类型库将成为
+// axffplay.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(208A1A33-2E59-46C8-A830-5DCD1498510F), version(1.0),
+  control ]
+library axffplayLib
+{
+	importlib(STDOLE_TLB);
+
+	//  CaxffplayCtrl 的主调度接口
+	[ 
+		uuid(05CC2E8A-00D7-497C-ABCB-A736E16B3D2C)	
+	]
+	dispinterface _Daxffplay
+	{
+		properties:
+		methods:
+			[id(1)] ULONG Play(BSTR sName);
+			[id(2)] LONG Stop(void);
+	};
+
+	//  CaxffplayCtrl 的事件调度接口
+
+	[ 
+		uuid(51AED315-84E5-4FB1-B1AC-52ECC590CB4A)	
+	]
+	dispinterface _DaxffplayEvents
+	{
+		properties:
+			//  事件接口没有任何属性
+
+		methods:
+	};
+
+	//  CaxffplayCtrl 的类信息
+	[
+		uuid(0C7F59EB-3BA1-41A0-A370-DAA68B118D39), licensed
+	]
+	coclass axffplay
+	{
+		[default] dispinterface _Daxffplay;
+		[default, source] dispinterface _DaxffplayEvents;
+	};
+
+};
